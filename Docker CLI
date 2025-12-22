@@ -8,10 +8,15 @@ Docker CLI:
 	- docker ps -a				              -> See all the images and containers created and running
 	- docker ps -aq				              -> Get the Container's ID
 	- docker rm -f $(docker ps -aq)		  -> Force remove all the docker containers/images
+	- docker run -it --entrypoint=bash -v ${pwd}\test:\app\test python:3.13.11-slim -> Load and save data into a container
 
 PowerShell CLI: 
 
 	- mkdir test                        -> Create a folder 
 	- cd test                           -> Get the directory of the specified folder
+	- cd ..								-> Get the previous directory
 	- ni file1.txt; 
     echo 'Hello from host' > file1.txt -> ni creates a New Item and echo load info. to that specified item. 
+	- cat file1.txt						-> display the content in the file. 
+	- pwd                               -> Print working directory
+	- ls 								-> Show all items in current directory
