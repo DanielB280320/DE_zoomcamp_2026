@@ -1,19 +1,29 @@
 Libraries: 
-	- pip install uv						  -> Tool to manage multiple virtual environments with difference depences. 
-	- pip instal pyarrow					  -> Let export data in parquet format. 
+	- pip install uv						  	-> Tool to manage multiple virtual environments with difference depences. 
+	- pip instal pyarrow					  	-> Let export data in parquet format. 
+
+File Types:
+	- Dockerfile 							  	-> File type that describe exactly how we build a docker container; It has all the instructions to create a docker image and from this create a docker container.
 
 Docker CLI: 
 
-	- docker -V                        	-> Docker version
-	- docker run hello-world		        -> Check if docker is running correctly
-	- docker run ubuntu			            -> Create an ubuntu image/container
-	- docker run -it ubuntu			        -> Create and access an ubuntu image/container
-	- docker run -it python:3.13.11-slim	-> Create and access a python image/container 
-	- docker ps -a				              -> See all the images and containers created and running
-	- docker ps -aq				              -> Get the Container's ID
-	- docker rm -f $(docker ps -aq)		  -> Force remove all the docker containers/images
+	- docker -V                        			-> Docker version
+	- docker run hello-world		        	-> Check if docker is running correctly
+	- docker run ubuntu			            	-> Create an ubuntu image/container
+	- docker run -it ubuntu			        	-> Create and access an ubuntu image/container
+	- docker run -it python:3.13.11-slim		-> Create and access a python image/container 
+	- docker ps -a				              	-> See all the images and containers created and running
+	- docker ps -aq				             	-> Get the Container's ID
+	- docker rm -f $(docker ps -aq)		  		-> Force remove all the docker containers/images
+	- docker run -it --entrypoint=bash python 3.13.11-slim -> Entry in a docker image/container.
 	- docker run -it --entrypoint=bash -v ${pwd}\test:\app\test python:3.13.11-slim -> Load and save data into a container
-	- rm -rf /								  -> Removes all the files in the current container. 
+	- docker build -t test:pandas .         	-> Create an image/container with a tag name within docker
+	- docker build --no-cache -t test:pandas .  -> Create an image/container with a tag name within docker without using the cache
+	- docker run -it --entrypoint=bash test:pandas -> Entry in a docker image/container.
+	- docker run -it --entrypoint=bash --rm test:pandas -> Entry in a docker image/container an also remove all the info. after close it.
+	- docker run -it --rm test:pandas 12				-> Execute a python script within an image with a predefined entry point not using the default bash.
+	- rm -rf /								  	-> Removes all the files in the current container. 
+	- 
 	
 PowerShell CLI: 
 
@@ -26,4 +36,6 @@ PowerShell CLI:
 	- pwd                               -> Print working directory
 	- ls 								-> Show all items in current directory
 	- uv run python -V
+	- uv init --python 3.13				-> Install an app within a virtual environment. 
+	- uv add pandas pyarrow 			-> Install frameworks/libraries within a virtual environment
 	
