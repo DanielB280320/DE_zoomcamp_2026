@@ -16,6 +16,7 @@ Docker CLI:
 	- docker ps -a				              	-> See all the images and containers created and running
 	- docker ps -aq				             	-> Get the Container's ID
 	- docker rm -f $(docker ps -aq)		  		-> Force remove all the docker containers/images
+	- rm -rf /								  	-> Removes all the files in the current container.
 	- docker run -it --entrypoint=bash python 3.13.11-slim -> Entry in a docker image/container.
 	- docker run -it --entrypoint=bash -v ${pwd}\test:\app\test python:3.13.11-slim -> Load and save data into a container
 	- docker build -t test:pandas .         	-> Create an image/container with a tag name within docker
@@ -23,7 +24,8 @@ Docker CLI:
 	- docker run -it --entrypoint=bash test:pandas -> Entry in a docker image/container.
 	- docker run -it --entrypoint=bash --rm test:pandas -> Entry in a docker image/container an also remove all the info. after close it.
 	- docker run -it --rm test:pandas 12				-> Execute a python script within an image with a predefined entry point not using the default bash.
-	- rm -rf /								  	-> Removes all the files in the current container. 
+	- docker network create pg-network    				-> Create a network so it can be visible to other containers to connect to it
+	 
 
 Postgree with docker:
 	- docker run -it --rm `						
@@ -32,11 +34,33 @@ Postgree with docker:
 	  -e POSTGRES_DB="ny_taxi" `				-> Create an environment variable
 	  -v ny_taxi_postgres_data:/var/lib/postgresql ` -> Create an internal volume manage by docker, if we didnt create the volume first in our host machine
 	  -p 5432:5432 `							-> Let specify a port in the host machine and in the docker container.
+	  --network=pg-network `					-> Execute a postgreSQL server in a specified network
+  	  --name pgdatabase `						-> Assign a name for the docker container within the network
 	  postgres:18								-> Docker version		
 
 	- uv add --dev pgcli						-> Install Postgree CLI in our venv and create a separate Dev depency.
 	- uv run pgcli -h localhost -p 5432 -u root -d ny_taxi 		-> Entry in a PostgreSql server from CLI 
-	
+
+	- docker run -it --rm --network=pg-network taxi_ingest:v001 `
+  	  --pg-user=root `
+	  --pg-password=root `
+	  --pg-host=pgdatabase `
+	  --pg-port=5432 `
+	  --pg-db=ny_taxi `
+	  --target-table=yellow_taxi_trips_2021_01 `
+	  --year=2021 `
+	  --month=2 `
+ 	  --chunksize=100000
+
+	Execute a pgadmin image: 
+	- docker run -it `
+	  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" `
+      -e PGADMIN_DEFAULT_PASSWORD="root" `
+ 	  -v pgadmin_data:/var/lib/pgadmin `
+ 	  -p 8085:80 `
+ 	  --network=pg-network `
+ 	  --name pgadmin `
+ 	  dpage/pgadmin4
 	
 PowerShell CLI: 
 
