@@ -1,6 +1,7 @@
 Libraries: 
 	- pip install uv						  	-> Tool to manage multiple virtual environments with difference depences. 
 	- pip instal pyarrow					  	-> Let export data in parquet format. 
+	- pip install click 						-> Dependency to create CLI from a python script.
 
 File Types:
 	- Dockerfile 							  	-> File type that describe exactly how we build a docker container; It has all the instructions to create a docker image and from this create a docker container.
@@ -23,7 +24,19 @@ Docker CLI:
 	- docker run -it --entrypoint=bash --rm test:pandas -> Entry in a docker image/container an also remove all the info. after close it.
 	- docker run -it --rm test:pandas 12				-> Execute a python script within an image with a predefined entry point not using the default bash.
 	- rm -rf /								  	-> Removes all the files in the current container. 
-	- 
+
+Postgree with docker:
+	- docker run -it --rm `						
+  	  -e POSTGRES_USER="root" `					-> Create an environment variable
+ 	  -e POSTGRES_PASSWORD="root" `				-> Create an environment variable
+	  -e POSTGRES_DB="ny_taxi" `				-> Create an environment variable
+	  -v ny_taxi_postgres_data:/var/lib/postgresql ` -> Create an internal volume manage by docker, if we didnt create the volume first in our host machine
+	  -p 5432:5432 `							-> Let specify a port in the host machine and in the docker container.
+	  postgres:18								-> Docker version		
+
+	- uv add --dev pgcli						-> Install Postgree CLI in our venv and create a separate Dev depency.
+	- uv run pgcli -h localhost -p 5432 -u root -d ny_taxi 		-> Entry in a PostgreSql server from CLI 
+	
 	
 PowerShell CLI: 
 
@@ -38,4 +51,7 @@ PowerShell CLI:
 	- uv run python -V
 	- uv init --python 3.13				-> Install an app within a virtual environment. 
 	- uv add pandas pyarrow 			-> Install frameworks/libraries within a virtual environment
+	- rm uv.lock						-> Remove uv.lock file if need to restore it
+	- uv lock							-> Create again a uv.lock file updated
+	- uv sync 							-> sync all depencies within our venv
 	
