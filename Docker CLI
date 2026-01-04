@@ -64,7 +64,10 @@ Postgre with docker:
 	
 PowerShell CLI: 
 
-	- mkdir test                        -> Create a folder 
+	- mkdir test                        -> Create a folder
+	- rmdir 							-> Remove an existing directory or folder
+	- code -n .							-> Open the current directory/folder in a new window
+	- code -r . 						-> force to open the current directory/folder in the same window
 	- cd test                           -> Get the directory of the specified folder
 	- cd ..								-> Get the previous directory
 	- ni file1.txt; 
