@@ -3,6 +3,7 @@ Terraform CLI:
 
   - terraform fmt main.tf                                                      -> Format terraform file
   - $env:GOOGLE_CREDENTIALS='/Users/Daniel/terraform_setup/keys/my_creds.json' -> Create a variable with the default google credentials.
+  - $env:GOOGLE_CREDENTIALS=$null                                              -> Remove the value assign to a variable
   - terraform plan                                                             -> Explain the plan before execute a resource/bucket 
   - terraform apply                                                            -> Execute a plan to create a resource/bucket. 
   - terraform destroy                                                          -> Destroy an existing resource/bucket stored in the cloud service provider. 
