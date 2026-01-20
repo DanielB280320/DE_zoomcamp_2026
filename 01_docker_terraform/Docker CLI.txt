@@ -1,0 +1,90 @@
+Libraries: 
+	- pip install uv						  	-> Tool to manage multiple virtual environments with difference depences. 
+	- pip instal pyarrow					  	-> Let export data in parquet format. 
+	- pip install click 						-> Dependency to create CLI parameters/arguments from a python script.
+
+File Types:
+	- Dockerfile 							  	-> File type that describe exactly how we build a docker container; It has all the instructions to create a docker image and from this create a docker container.
+
+Docker CLI: 
+
+	- docker -V                        			-> Docker version
+	- docker run hello-world		        	-> Check if docker is running correctly
+	- docker run ubuntu			            	-> Create an ubuntu image/container
+	- docker run -it ubuntu			        	-> Create and access an ubuntu image/container
+	- docker run -it python:3.13.11-slim		-> Create and access a python image/container 
+	- docker ps -a				              	-> See all the images and containers created and running
+	- docker ps -aq				             	-> Get the Container's ID
+	- docker rm -f $(docker ps -aq)		  		-> Force remove all the docker containers/images
+	- rm -rf /								  	-> Removes all the files in the current container.
+	- docker run -it --entrypoint=bash python 3.13.11-slim -> Entry in a docker image/container.
+	- docker run -it --entrypoint=bash -v ${pwd}\test:\app\test python:3.13.11-slim -> Load and save data into a container
+	- docker build -t test:pandas .         			-> Create an image/container with a tag name within docker
+	- docker build --no-cache -t test:pandas .  		-> Create an image/container with a tag name within docker without using the cache
+	- docker run -it --entrypoint=bash test:pandas 		-> Entry in a docker image/container.
+	- docker run -it --entrypoint=bash --rm test:pandas -> Entry in a docker image/container an also remove all the info. after close it.
+	- docker run -it --rm test:pandas 12				-> Execute a python script within an image with a predefined entry point not using the default bash.
+	- docker network create pg-network    				-> Create a network so it can be visible to other containers to connect to it
+	- docker network ls 								-> See all the networks in docker.
+	 
+Postgre with docker:
+	- docker run -it --rm `						
+  	  -e POSTGRES_USER="root" `						 -> Create an environment variable
+ 	  -e POSTGRES_PASSWORD="root" `					 -> Create an environment variable
+	  -e POSTGRES_DB="ny_taxi" `					 -> Create an environment variable
+	  -v ny_taxi_postgres_data:/var/lib/postgresql ` -> Create an internal volume manage by docker, if we didnt create the volume first in our host machine
+	  -p 5432:5432 `								 -> Let specify a port in the host machine and in the docker container.
+	  --network=pg-network `						 -> Execute a postgreSQL server in a specified network
+  	  --name pgdatabase `							 -> Assign a name for the docker container within the network
+	  postgres:18									 -> Docker version		
+
+	- uv add --dev pgcli							 -> Install Postgree CLI in our venv and create a separate Dev depency.
+	- uv run pgcli -h localhost -p 5432 -u root -d ny_taxi 		-> Entry in a PostgreSql server from CLI 
+
+	- docker run -it --rm --network=pg-network taxi_ingest:v001 `
+  	  --pg-user=root `
+	  --pg-password=root `
+	  --pg-host=pgdatabase `
+	  --pg-port=5432 `
+	  --pg-db=ny_taxi `
+	  --target-table=yellow_taxi_trips_2021_01 `
+	  --year=2021 `
+	  --month=2 `
+ 	  --chunksize=100000
+
+	Execute a pgadmin image: 
+	- docker run -it `
+	  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" `
+      -e PGADMIN_DEFAULT_PASSWORD="root" `
+ 	  -v pgadmin_data:/var/lib/pgadmin `
+ 	  -p 8085:80 `
+ 	  --network=pg-network `
+ 	  --name pgadmin `
+ 	  dpage/pgadmin4
+
+Note: When trying to connect to a SQL Server running in Docker from our local/host machine, we must to connect 
+	  to the server only using the local port and Localhost, otherwise the connection will fail.
+
+PowerShell CLI: 
+
+	- mkdir test                        -> Create a folder
+	- rmdir 							-> Remove an existing directory or folder
+	- code -n .							-> Open the current directory/folder in a new window
+	- code -r . 						-> force to open the current directory/folder in the same window
+	- cd test                           -> Get the directory of the specified folder
+	- cd ..								-> Get the previous directory
+	- Copy-Item -Path <Path> -Destination <Copy Destination> -Recurse -Force -Verbose  -> Copy a Dir to another Path/Dir
+	- ni file1.txt; 
+    echo 'Hello from host' > file1.txt 	-> ni creates a New Item and echo load info. to that specified item. 
+	- cat file1.txt						-> display the content in the file. 
+	- pwd                               -> Print working directory
+	- ls 								-> Show all items in current directory
+	- uv run python -V
+	- uv init --python 3.13										 -> Install an app within a virtual environment. 
+	- uv add pandas pyarrow 								     -> Install frameworks/libraries within a virtual environment
+	- uv run jupyter notebook									 -> Run a jupyter notebook from the terminal in a localhost
+	- uv run jupyter nbconvert --to=script jpyternotebook.ipynb  -> Convert a Jupyter Notebook to a py script.
+	- rm uv.lock												 -> Remove uv.lock file if need to restore it
+	- uv lock													 -> Create again a uv.lock file updated
+	- uv sync 													 -> sync all depencies within our venv
+	

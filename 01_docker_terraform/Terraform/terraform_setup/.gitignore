@@ -1,0 +1,5 @@
+# Ignore all JSON files where credentials and Service account details are stored.
+*.json
+
+# Ignore all executable files
+*.exe
