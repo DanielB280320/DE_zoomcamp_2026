@@ -1,6 +1,6 @@
 variable "credentials" {
   description = "My credentials"
-  default     = "C:/Users/Daniel/terraform_setup/keys/my_creds.json"
+  default     = "C:/Users/Daniel/DE_zoomcap_2026/01_docker_terraform/Terraform/terraform_setup/keys/my_creds.json"
 }
 
 variable "project" {

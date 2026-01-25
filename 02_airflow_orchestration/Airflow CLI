@@ -1,0 +1,48 @@
+Airflow CLI: 
+
+    - curl.exe -LfO 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml' # Download the docker-compose.yaml file for Airflow.
+    - curl.exe -LfO -k 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml' # Download the docker-compose.override.yaml file for Airflow.
+    
+    - docker-compose build # Build the Docker images defined in the docker-compose.yaml file.
+    - docker-compose build --no-cache # Rebuild the Docker images without using any cached layers.
+    - docker-compose up airflow-init # Initialize the Airflow database and other necessary components.
+    - docker-compose up # Start the Airflow services as defined in the docker-compose.yaml file.
+    - docker-compose up -d # Start the Airflow services in detached mode.
+    - docker-compose down # Stop and remove the Airflow services and associated containers.
+    - docker-compose down --volumes --rmi all # Stop and remove the Airflow services, associated containers, volumes, and images.
+    - docker-compose ps # List all the running containers managed by Docker Compose, including their status and ports.
+    - docker-compose logs -f # Follow the logs of all services managed by Docker Compose in real-time.
+    - docker-compose logs -f <service_name> # Follow the logs of a specific service managed by Docker Compose in real-time.
+    ----------------------------
+    - Port Mapping Explanation: airflow-apiserver service by default runs on port 8080 inside the Docker container.
+        ╔══════════════════════╗         ╔══════════════════════╗
+        ║   Your Computer      ║         ║   Docker Container   ║
+        ║   (Windows)          ║         ║                      ║
+        ║                      ║         ║                      ║
+        ║  Browser             ║         ║                      ║
+        ║    ↓                 ║         ║                      ║
+        ║  localhost:8082 ─────╬────────→║  :8080 ← Airflow     ║
+        ║                      ║  maps   ║        listens here  ║
+        ║                      ║  to     ║                      ║
+        ╚══════════════════════╝         ╚══════════════════════╝
+            "8082:8080" ✅
+        ╔══════════════════════╗         ╔══════════════════════╗
+        ║   Your Computer      ║         ║   Docker Container   ║
+        ║   (Windows)          ║         ║                      ║
+        ║                      ║         ║                      ║
+        ║  Browser             ║         ║   :8082 ← Nothing!   ║
+        ║    ↓                 ║         ║    ↓                 ║
+        ║  localhost:8082 ─────╬────────→║   ✗ No service       ║
+        ║                      ║  maps   ║                      ║
+        ║                      ║  to     ║   :8080 ← Airflow    ║
+        ║                      ║         ║        (unreachable) ║
+        ╚══════════════════════╝         ╚══════════════════════╝
+            "8082:8082" ❌
+
+    - docker-compose exec -it airflow-scheduler bash # Access the bash shell of the airflow-scheduler container.
+    - docker-compose exec -it airflow-apiserver bash # Access the bash shell of the airflow-apiserver container.
+    - docker-compose exec airflow-scheduler airflow tasks test <DagName> <TaskName> <CurrenteDate> # Test a specific task in a DAG using the CLI
+    - docker-compose exec airflow-scheduler airflow dags test <DagName> <CurrenteDate> # Test an entire DAG using the CLI
+
+    Important: when getting this exception 'AirflowTaskTimeout: DagBag import timeout' it indicates that the dag import proccess
+    is taking longer than the default dagbag timeout of 30 seconds, so is neccesary to increase the dagbag timeout in config file. 
