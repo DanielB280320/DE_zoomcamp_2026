@@ -1,0 +1,8 @@
+Ubuntu CLI: 
+
+    - sudo apt-get update && sudo apt-get install vim -y # install vim editor
+    - df -h # check disk space
+    - sudo docker system df # check docker disk usage
+    - lsblk # list block devices to identify root partition
+    - sudo growthpart /dev/sda <1> # expand partition 1 to fill available space
+    - sudo resize2fs /dev/sda2 # resize filesystem to fill partition
