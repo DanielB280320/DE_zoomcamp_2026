@@ -1,4 +1,0 @@
-Kestra CLI: 
-
-    - curl.exe -lfO -k "https://raw.githubusercontent.com/kestra-io/kestra/develop/docker-compose.yml" # Download the docker-compose.yml official file for Kestra.
-    
