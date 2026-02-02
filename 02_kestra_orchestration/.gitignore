@@ -1,2 +1,5 @@
 # ignore environment variable files
 *.env
+
+# ignore JSON configuration files
+*.json
