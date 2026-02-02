@@ -1,5 +1,7 @@
 Ubuntu CLI: 
 
+    - wsl --install # install WSL on Windows
+    - wsl.exe -d Ubuntu-<version> # launch Ubuntu in WSL with version 22.04 
     - sudo apt-get update && sudo apt-get install vim -y # install vim editor
     - df -h # check disk space
     - sudo docker system df # check docker disk usage
