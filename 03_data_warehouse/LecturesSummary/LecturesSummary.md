@@ -141,8 +141,8 @@ This automatic process ensures that as new data is added, the clustering strateg
 
 # BigQuery: Internal Architecture. 
 
-![pictures](/pictures/image.png)
+![pictures](pictures/image.png)
 
-![pictures](/pictures/image-1.png)
+![pictures](pictures/image-1.png)
 
-![pictures](/pictures/image-2.png)
+![pictures](pictures/image-2.png)
