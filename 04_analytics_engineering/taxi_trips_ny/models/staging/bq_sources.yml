@@ -1,0 +1,13 @@
+version: 2
+
+sources: 
+  - name: raw_ny_taxi_trips
+    description: "Raw data for NY taxi trips"
+    database: project-0c3c5223-416f-4242-b0f # Project ID for BigQuery
+    schema: zoomcamp_bq_dataset # Dataset name in BigQuery
+    tables: 
+      - name: yellow_tripdata
+        description: "NY yellow taxi trip data"
+      - name: green_tripdata
+        description: "NY green taxi trip data"
+

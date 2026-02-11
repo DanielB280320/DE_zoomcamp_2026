@@ -1,0 +1,6 @@
+Gcloud CLI: 
+
+    - gcloud auth login # Authenticate with Google Cloud
+    - gcloud storage ls # List all the buckets within a project
+    - bq ls # list all the datasets within a project
+    - bq ls <datasetname> # List all the tables within a specified dataset. 

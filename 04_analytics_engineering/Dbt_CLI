@@ -1,0 +1,39 @@
+Dbt CLI: 
+
+    Project setup commands: 
+    - dbt init # Initialize and build a dbt project 
+    - dbt debug # Check profile.yml file to test the connection to the datasource
+    - dbt seed # Ingest all .csv that are in the seeds folder
+    - dbt snapshot # 
+    - dbt source freshness # 
+    - dbt docs generate # Generate an artifact catalog.json
+    - dbt docs serve 
+
+    Documentation and features: 
+    - dbt clean # Clean all data that is stored in dbt targets
+    - dbt deps # Install all dbt packages. 
+    - dbt compile # 
+
+    Core workflow: 
+    - dbt run # It run every single model at the same time within our project and materialize it. 
+    - dbt test # Check all text within our dbt project.
+    - dbt build # Execute dbt run + dbt test + dbt seed + dbt snapshot + UDFs. 
+    - dbt retry # Execute again the previous command that fail. 
+
+    Important flags: 
+    - dbt --help # Overview of all commands available
+    - dbt -V  
+    - dbt run --full-refresh # Upload all data from scratch even if we are working with incremental models. 
+    - dbt run --fail-fast 
+
+    Target switching dev vs production: 
+    - dbt test -t prod # Let us specify the target dev/prod when we want to run a command
+
+    Model selection with upstream/downstream dependencies: 
+    - dbt run --select stg_green_tripdata # Will execute the selected model. 
+    -dbt run --select +int_trips_unioned # Build all the previous models needed to create the current one. 
+    -dbt run --select int_trips_unioned+ # Build all the afterward models that depends on the current one. 
+    -dbt run --select models/intermediate # Run all models in the specified dir. 
+
+    Advanced: state-based deployments and artifacts:
+    -dbt run --select state:modified --state ./target
