@@ -13,7 +13,7 @@ trips_unioned AS (
     FROM green_trip_data
 
     UNION ALL
-    
+
     SELECT *
     FROM yellow_trip_data
 )

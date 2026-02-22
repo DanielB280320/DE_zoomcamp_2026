@@ -1,0 +1,21 @@
+Bruin CLI: 
+
+For windows setup bruin must be installed using WSL (Windows Subsystem for Linux); To work in the same directory that in our windows system, 
+we need to open VScode using the WSL terminal and find the directory we also use in Windows; C drive of our windows machine is mounted within 
+mnt/ folder in WSL, so we can navigate to our desired directory:
+
+    - curl -LsSf https://getbruin.com/install/cli | sh # Install the Bruin CLI tool on your system. This command downloads and runs the installation script from the Bruin website, which sets up the CLI for use in your terminal.
+    - bruin init # Initialize a new Bruin project in the current directory. This command creates the necessary files and folder structure for a Bruin project, allowing you to start defining your data pipelines and configurations.
+    - bruin validate bruin-pipeline # Validate the Bruin pipeline configuration file. This command checks the syntax and structure of your Bruin pipeline definition to ensure it is correctly formatted and can be executed without errors.
+    - bruin run bruin-pipeline-path # Execute the Bruin pipeline defined in the configuration file. This command runs the data processing tasks and transformations as specified in your Bruin pipeline, allowing you to process your data according to the defined workflow.
+
+Zoomcamp pipeline: 
+
+We can use Copilot MCP to create the python ingestion asset in the trips.py file, and run it with the following command:
+
+    bruin run ./zoomcamp/pipeline/assets/ingestion/trips.py \
+  --environment default \
+  --start-date 2022-01-01 \
+  --end-date 2022-02-01
+
+Note: For python assets within our pipeline if we define a requirements.txt file in the same directory, Bruin will automatically install those dependencies in a venv before running the asset. This allows us to manage and isolate the dependencies needed for our python assets without affecting the global Python environment on our system.
