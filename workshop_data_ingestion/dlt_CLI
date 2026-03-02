@@ -1,0 +1,25 @@
+Dlt CLI: 
+
+    Create a dlt MCP server in vscode IDE: 
+    {
+    "servers": {
+        "dlt": {
+        "command": "uv",
+        "args": [
+            "run",
+            "--with",
+            "dlt[duckdb]",
+            "--with",
+            "dlt-mcp[search]",
+            "python",
+            "-m",
+            "dlt_mcp"
+            ]
+        }
+      }
+    }
+    
+    - uv init # Initialize a virtual environment 
+    - uv add "dlt[workspace]" # install all dependencies required but dlt within a uv. 
+    - uv run dlt init dlthub:open_library duckdb # initialize a dlt project
+    - uv run dlt pipeline open_library_pipeline show # Initialize a dlt dashboard to inspect a specified pipeline. 

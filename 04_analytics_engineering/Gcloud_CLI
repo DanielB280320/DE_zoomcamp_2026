@@ -2,6 +2,7 @@ Gcloud CLI:
 
     - gcloud auth login # Authenticate with Google Cloud
     - gcloud storage ls # List all the buckets within a project
+    - gcloud compute configure-ssh # 
     - bq ls # list all the datasets within a project
     - bq ls <datasetname> # List all the tables within a specified dataset. 
     - bq ls --max_results=<1000> <datasetname> # Specify the max number of records will be retrieved.

@@ -2,6 +2,8 @@ Ubuntu CLI:
 
     - wsl --install # install WSL on Windows
     - wsl.exe -d Ubuntu-<version> # launch Ubuntu in WSL with version 22.04 
+    - ls -a # visualize all folders within the current directory
+    - wsl --shutdown # shutdown wsl
     - sudo apt-get update && sudo apt-get install vim -y # install vim editor
     - sudo apt install python3-pip # install pip for Python package management
     - sudo apt install python3-pandas # install pandas library

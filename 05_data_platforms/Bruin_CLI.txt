@@ -8,6 +8,7 @@ mnt/ folder in WSL, so we can navigate to our desired directory:
     - bruin init # Initialize a new Bruin project in the current directory. This command creates the necessary files and folder structure for a Bruin project, allowing you to start defining your data pipelines and configurations.
     - bruin validate bruin-pipeline # Validate the Bruin pipeline configuration file. This command checks the syntax and structure of your Bruin pipeline definition to ensure it is correctly formatted and can be executed without errors.
     - bruin run bruin-pipeline-path # Execute the Bruin pipeline defined in the configuration file. This command runs the data processing tasks and transformations as specified in your Bruin pipeline, allowing you to process your data according to the defined workflow.
+    - bruin connections list # get all the connections configure in the .bruin.yml
 
 Zoomcamp pipeline: 
 
