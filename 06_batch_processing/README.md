@@ -27,7 +27,6 @@ There are two main paradigms for processing data:
 | **Example** | Processing all taxi trips from January 15th at end of day | Sending a trip-start event the moment a passenger boards |
 | **Week covered** | Week 5 | Week 6 |
 
----
 
 ### Common Batch Job Intervals
 
@@ -36,7 +35,6 @@ There are two main paradigms for processing data:
 - **Hourly** — process everything from the previous hour
 - **Sub-hourly** — e.g., every 5 minutes (less typical)
 
----
 
 ### Technologies Used for Batch Processing
 
@@ -45,7 +43,6 @@ There are two main paradigms for processing data:
 - **Apache Spark** — the focus of Week 5
 - **Orchestration tools** (e.g., Airflow/Prefect) — used to chain batch steps into a pipeline
 
----
 
 ### Advantages of Batch Processing
 
@@ -57,12 +54,12 @@ There are two main paradigms for processing data:
 
 - **Delay** — data is only available after the batch window closes *and* the pipeline finishes executing. For example, an hourly job with a 20-minute pipeline means waiting ~80–90 minutes to act on data from the start of the previous hour.
 
----
 
 ### Why Batch Still Dominates
 
 Despite the delay disadvantage, batch processing accounts for an estimated **80–90% of real-world data jobs**. Many business metrics are not time-sensitive enough to require streaming, making batch the practical and convenient default.
 
+---
 
 ## Introduction to Spark: What is Apache Spark?
 
@@ -75,7 +72,6 @@ Apache Spark is a **multi-language engine for large-scale data processing**. The
   - R
 - **Primarily for batch**, but can also handle streaming by treating a data stream as a sequence of small batches
 
----
 
 ### When Should You Use Spark?
 
@@ -91,7 +87,6 @@ Spark is typically used when your data lives in a **data lake** (e.g., AWS S3 or
 
 > **Rule of thumb:** If you can express your job as a SQL query, use SQL. Use Spark when you need more flexibility.
 
----
 
 ### Common Use Cases for Spark
 
@@ -101,7 +96,6 @@ Spark is typically used when your data lives in a **data lake** (e.g., AWS S3 or
   - Training ML models
   - Applying/scoring a trained model at scale
 
----
 
 ### A Typical Spark Workflow
 
