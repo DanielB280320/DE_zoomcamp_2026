@@ -105,5 +105,5 @@ Spark is typically used when your data lives in a **data lake** (e.g., AWS S3 or
 
 ### A Typical Spark Workflow
 
-![spark_workflow](/pictures/spark_workflow.png)
+![spark_workflow](pictures/spark_workflow.png)
 
