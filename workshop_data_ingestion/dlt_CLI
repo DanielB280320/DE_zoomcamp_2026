@@ -20,6 +20,6 @@ Dlt CLI:
     }
     
     - uv init # Initialize a virtual environment 
-    - uv add "dlt[workspace]" # install all dependencies required but dlt within a uv. 
+    - uv add "dlt[workspace]" # install dlt and all dependencies required within an uv. 
     - uv run dlt init dlthub:open_library duckdb # initialize a dlt project
     - uv run dlt pipeline open_library_pipeline show # Initialize a dlt dashboard to inspect a specified pipeline. 
