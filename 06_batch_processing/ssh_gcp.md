@@ -24,4 +24,6 @@ To config the access to the VM from our host we need to create a config file wit
         IdentityFile /home/aniel/.ssh/gcp # Path to the private ssh key
 
 
+Refresh all the packages available in our machine: 
+
     sudo apt-get update # updates the list of available packages from the internet — it doesn't install or upgrade anything, just refreshes the package index so your system knows what's available and at what version.

@@ -2,10 +2,13 @@
 
 Spark requires Java 17 or 21; to install it: 
 
-    https://jdk.java.net/archive/
+    # Install Java default version: 
     sudo apt update
     sudo apt install default-jdk
-    tar xzvf openjdk-21.0.2_linux-x64_bin.tar.gz # Unzip java
+    
+    # Install Java specified version: 
+    https://jdk.java.net/archive/
+    tar xzvf openjdk-21.0.2_linux-x64_bin.tar.gz # Unzip Java .tgz file
     export JAVA_HOME="${HOME}/spark/jdk-21.0.2" # Set JAVA_HOME
     export PATH="${JAVA_HOME}/bin:${PATH}"
 
@@ -40,7 +43,6 @@ Linux commands for manipulation files:
     tree -lh directory_name 
     zcat filename.zip
     
-
 SparkSQL order execution: 
 
     .withcolumn()

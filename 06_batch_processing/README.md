@@ -101,6 +101,7 @@ Spark is typically used when your data lives in a **data lake** (e.g., AWS S3 or
 
 ![spark_workflow](pictures/spark_workflow.png)
 
+---
 
 ## Anatomy of Spark cluster: 
 
@@ -108,8 +109,6 @@ Spark is typically used when your data lives in a **data lake** (e.g., AWS S3 or
 
 - In previous lessons, Spark was run **locally** using `master = local[*]`, where everything executes on a single machine.
 - In production, Spark runs on a **distributed cluster** with multiple machines working together.
-
----
 
 ### Spark Cluster Components
 
