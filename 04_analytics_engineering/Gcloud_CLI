@@ -1,8 +1,25 @@
-Gcloud CLI: 
+gcloud CLI: 
 
     - gcloud auth login # Authenticate with Google Cloud
     - gcloud storage ls # List all the buckets within a project
     - gcloud compute configure-ssh # 
+    - gcloud compute instances start <instance_name> --zone= uscentral-1
+    - gcloud compute instances describe 
+    - gcloud compute instances list
+    - gcloud compute instances stop
     - bq ls # list all the datasets within a project
     - bq ls <datasetname> # List all the tables within a specified dataset. 
     - bq ls --max_results=<1000> <datasetname> # Specify the max number of records will be retrieved.
+
+    - gsutil -m cp -r taxi_data_pq/ gs://bucket-spark-2026/taxi_data_pq # Copy a local file to a remote location in a bucket in gcs. 
+
+Spark gcs connector: 
+
+    - gs://hadoop-lib/gcs/gcs-connector-hadoop3-2.2.5.jar # Spark gsc connector
+
+    reference: 
+    https://docs.cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage?hl=es-419
+
+    Download it from gcs remote location to our machine: 
+    - gsutil cp gs://hadoop-lib/gcs/gcs-connector-hadoop3-2.2.5.jar gcs-connector-hadoop3-2.2.5.jar
+    
