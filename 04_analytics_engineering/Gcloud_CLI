@@ -7,6 +7,9 @@ gcloud CLI:
     - gcloud compute instances describe 
     - gcloud compute instances list
     - gcloud compute instances stop
+    - gcloud dataproc clusters start <cluster name> --region=<cluster region>
+    - gcloud dataproc clusters stop <cluster name> --region=<cluster region>
+    - gcloud dataproc clusters list --region=us-central1 # List all running clusters in the specified zone. 
     - bq ls # list all the datasets within a project
     - bq ls <datasetname> # List all the tables within a specified dataset. 
     - bq ls --max_results=<1000> <datasetname> # Specify the max number of records will be retrieved.

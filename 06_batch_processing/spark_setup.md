@@ -61,7 +61,7 @@ SparkSQL order execution:
 
     URL='spark://de-zoomcamp.us-central1-c.c.project-0c3c5223-416f-4242-b0f.internal:7077'
 
-Submiting a Spark job: 
+Submiting a Spark job to local Spark cluster: 
     
     spark-submit \
         --master="${URL}" \

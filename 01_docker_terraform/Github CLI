@@ -8,7 +8,7 @@ github CLI:
   - git clone <Repository path> TempRepoName # Clone a remote Git repository to a local directory named 'TempRepoName'.
   - git remote add origin https://github.com/username/repo.git # Add a remote repository named 'origin' with the specified URL.
   - git status # Check the status of the working directory and staging area.
-  - gir remote -v # List the remote repositories associated with the local repository.
+  - git remote -v # List the remote repositories associated with the local repository.
   - git remote set-url origin https://github.com/DanielB280320/DE_zoomcamp_2026.git # Change the URL of the remote repository named 'origin'.
   - git add . # Stage all changes (new, modified, deleted files) for the next commit.
   - git rm -f --cached filename # Unstage and remove a file from the repository while keeping it in the working directory.
