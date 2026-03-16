@@ -26,6 +26,8 @@ Docker CLI:
 	- docker run -it --rm test:pandas 12				-> Execute a python script within an image with a predefined entry point not using the default bash.
 	- docker network create pg-network    				-> Create a network so it can be visible to other containers to connect to it
 	- docker network ls 								-> See all the networks in docker.
+	- sudo docker compose down --rmi all <image(s)> # Stop and remove all specified images. 
+	- sudo docker compose build --no-cache <image(s)> # Build images with no cache 
 	 
 Postgre with docker:
 	- docker run -it --rm `						
