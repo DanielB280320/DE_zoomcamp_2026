@@ -27,7 +27,8 @@ Before initializing a Jupyter notebook,  we can specify the python path where to
 
 To unzip a file: 
 
-    gunzip xzvf file.zip # for .gz files
+    unzip xzvf file.zip # for .zip files
+    gunzip xzvf file.gz # for .gz files
     tar xzvf # for .tar.gz / .tgz files
 
         x = extract
