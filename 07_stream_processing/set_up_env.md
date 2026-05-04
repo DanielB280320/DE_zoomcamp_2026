@@ -65,6 +65,9 @@ Change the owner of a dir/file:
     # What user I am
     whoami
 
+    # Include user to sudo group:  
+    sudo usermod -aG sudo your_username
+
 IMPORTANT: When we are creating the flink image, we need to set up all drivers for the different connections we will be using (eg. PostgreSQL db, s3, gcs, redshift, bigquery, etc.) 
 
 Executing a Flink job: 
